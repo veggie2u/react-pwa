@@ -7,23 +7,39 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "firebase": "^7.12.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0"
+  },
+  "devDependencies": {
+    "eslint-config-kentcdodds": "^14.8.0",
+    "eslint-plugin-jest": "^23.8.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "serve": "serve -s build"
+    "serve": "serve -s build",
+    "lint": "eslint './src/*.js'"
   },
   "resolutions": {
     "@babel/preset-env": "^7.8.7"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "kentcdodds",
+      "kentcdodds/react",
+      "plugin:jest/recommended"
+    ],
+    "plugins": [
+      "jest"
+    ],
+    "rules": {
+      "no-console": "off"
+    }
   },
   "browserslist": {
     "production": [

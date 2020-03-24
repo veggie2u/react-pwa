@@ -11,7 +11,7 @@ const App = () => {
     <Router>
       <CssBaseline />
       <Suspense fallback={<div>Loading...</div>}>
-        <NavBar
+        <NavBar />
         <nav>
           <ul>
             <li>
