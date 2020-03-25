@@ -1,7 +1,12 @@
 import React, {useState} from 'react'
 import firebase from './firebase'
 
-export const SpellInput = ({spell}) => {
+export type Spell = {
+  id: string,
+  name: string
+}
+
+export const SpellInput: React.FC<Spell> = (spell) => {
   const [name, setName] = useState(spell.name)
   
   const onUpdate = () => {
@@ -22,3 +27,5 @@ export const SpellInput = ({spell}) => {
     </React.Fragment>
   );
 }
+
+export default SpellInput

@@ -1,9 +1,9 @@
-import React, { lazy, Suspense } from "react"
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
+import React, { lazy, Suspense } from 'react'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 const About = lazy(() => import('./About'))
-const Home = lazy(() => import("./Home"));
+const Home = lazy(() => import('./Home'));
 const NavBar = lazy(() => import('./NavBar'))
 
 const App = () => {

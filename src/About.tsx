@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import firebase from './firebase';
-import {SpellInput} from './SpellInput' 
+import {Spell, SpellInput} from './SpellInput' 
+
 const About = () => {
-  const [spells, setSpells] = useState([])
+  const [spells, setSpells] = useState<Spell[]>([])
   const [newSpellName, setNewSpellName] = useState('')
 
   useEffect(() => {
@@ -13,8 +14,8 @@ const About = () => {
     // }
   const db = firebase.firestore()
     const unsubscribe = db.collection('spells').onSnapshot((snapshot) => {
-      const spellsData = []
-      snapshot.forEach(doc => spellsData.push(({ ...doc.data(), id: doc.id})))
+      const spellsData: Spell[] = []
+      snapshot.forEach(doc => spellsData.push(({ name: doc.data().name, id: doc.id})))
       setSpells(spellsData)
     })
     return unsubscribe
@@ -33,7 +34,7 @@ const About = () => {
       <button onClick={onCreate}>Create</button>
         {spells.map(spell => (
           <li key={spell.name}>
-            <SpellInput spell={spell}/>
+            <SpellInput id={spell.id} name={spell.name}/>
           </li>
         ))}
       </ul>
